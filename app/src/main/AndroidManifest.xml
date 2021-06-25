@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/rounded"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mlh">
-        <activity android:name=".AccountActivity"></activity>
+        <activity android:name=".AccountActivity"/>
         <activity android:name=".PaymentActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
