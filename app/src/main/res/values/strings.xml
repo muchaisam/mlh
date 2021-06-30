@@ -5,6 +5,19 @@
     <string name="account">Account</string>
     <string name="worry">No more worries!</string>
     <string name="p">Payment</string>
+    <string name="set">Settings</string>
+    <string name="log">Logout</string>
+    <string name="tr">Transactions</string>
     <string name="menu">Menu</string>
     <string name="welcome">Hello There!</string>
+    <string name="image">image</string>
+    <string name="noti">Notification</string>
+    <string name="ac">Account details</string>
+    <string name="arrow">arrow</string>
+    <string name="send">Send</string>
+    <string name="tp">Topup</string>
+    <string name="rc">Request</string>
+    <string name="mpesa_payment">MPESA Payment</string>
+    <string name="phone">Your Phone Number</string>
+    <string name="amount">Enter Amount</string>
 </resources>
