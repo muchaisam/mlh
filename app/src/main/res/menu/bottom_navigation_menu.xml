@@ -1,16 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page1"
+        android:id="@+id/homef"
         android:enabled="true"
         android:icon="@drawable/hom"
         android:title="@string/home"/>
     <item
-        android:id="@+id/page2"
+        android:id="@+id/payment_pg"
         android:enabled="true"
         android:icon="@drawable/pay"
         android:title="@string/pay"/>
     <item
-        android:id="@+id/page3"
+        android:id="@+id/account_pg"
         android:enabled="true"
         android:icon="@drawable/ac"
         android:title="@string/account"/>
