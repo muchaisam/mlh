@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".PaymentActivity">
+
+    <!--    Header-->
+
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mpesa_payment"
+            android:fontFamily="@font/sfheavy"
+            android:textSize="17sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="phone"
+        android:layout_margin="10dp"
+        android:id="@+id/phone"
+        android:hint="@string/phone"
+        android:fontFamily="@font/sfheavy"
+        android:layout_height="wrap_content"
+        android:autofillHints="@string/amount" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:id="@+id/amount"
+        android:layout_margin="10dp"
+        android:hint="@string/amount"
+        android:fontFamily="@font/sfsemibold"
+        android:layout_height="wrap_content"
+        android:autofillHints="@string/amount" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pay"
+        android:background="@color/purple_500"
+        android:fontFamily="@font/sfheavy"
+        android:id="@+id/pay"
+        android:enabled="false"
+        android:layout_margin="10dp" />
+
+</LinearLayout>
