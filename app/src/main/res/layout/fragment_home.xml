@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.HomeFragment">
+    
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/welcome"
+                android:textStyle="bold"
+                android:fontFamily="@font/sfbold"
+                android:textSize="20sp"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!--        Cards-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="360dp"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/my_gradient_drawable2"
+                            android:layout_marginTop="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:minHeight="100dp"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/pay"
+                                    android:contentDescription="@string/p" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="@string/p"
+                                    android:fontFamily="@font/sfmedium"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/my_gradient_drawable3"
+                            android:layout_marginTop="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:minHeight="100dp"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/send"
+                                    android:contentDescription="@string/send" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="@string/send"
+                                    android:fontFamily="@font/sfmedium"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/topup"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/my_gradient_drawable"
+                            android:layout_marginTop="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:minHeight="100dp"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/topup"
+                                    android:contentDescription="@string/tp" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="@string/tp"
+                                    android:fontFamily="@font/sfmedium"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/request"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/my_gradient_drawabl"
+                            android:layout_marginTop="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:minHeight="100dp"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/rq"
+                                    android:contentDescription="@string/rc" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="@string/rc"
+                                    android:fontFamily="@font/sfmedium"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
