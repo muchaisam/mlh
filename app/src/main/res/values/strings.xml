@@ -17,7 +17,12 @@
     <string name="send">Send</string>
     <string name="tp">Topup</string>
     <string name="rc">Request</string>
-    <string name="mpesa_payment">MPESA Payment</string>
+    <string name="mpesa_payment">Payment</string>
     <string name="phone">Your Phone Number</string>
     <string name="amount">Enter Amount</string>
+    <string name="mobilen">Enter Your Mobile Number</string>
+    <string name="digits">0712345678</string>
+    <string name="next">next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
