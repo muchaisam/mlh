@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/rounded"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mlh">
-        <activity android:name=".AccountActivity"/>
+        <activity android:name=".MobileVerification" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".AccountActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
