@@ -25,4 +25,9 @@
     <string name="next">next</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="seaw">SEND $ ANYWHERE ANYTIME</string>
+    <string name="k">Ksh ..</string>
+    <string name="pd">per day</string>
+    <string name="raa">REQUEST $ ANYWHERE ANYTIME</string>
+    <string name="tc">Trending Categories</string>
 </resources>
