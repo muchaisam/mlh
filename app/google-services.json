@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "967728510894",
+    "project_id": "mlhapplication",
+    "storage_bucket": "mlhapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967728510894:android:43e5fbafb692cc6e92ba3f",
+        "android_client_info": {
+          "package_name": "com.example.mlh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967728510894-om7stijtjidcunaklkhb5h7irf3udtfc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9dWkFzs69-e0tdz_ax7gpXjhZ1j3yqao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967728510894-om7stijtjidcunaklkhb5h7irf3udtfc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
