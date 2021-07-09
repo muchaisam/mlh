@@ -62,6 +62,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="3dp"
         android:padding="3dp"
+        android:background="@color/white"
         android:src="@drawable/sett"
         android:contentDescription="@string/p" />
 
@@ -98,6 +99,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="3dp"
         android:padding="3dp"
+        android:background="@color/white"
         android:src="@drawable/transac"
         android:contentDescription="@string/tr" />
 
@@ -134,6 +136,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="3dp"
         android:padding="3dp"
+        android:background="@color/white"
         android:src="@drawable/logout"
         android:contentDescription="@string/p" />
 
