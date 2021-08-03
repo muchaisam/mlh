@@ -13,12 +13,12 @@
         android:gravity="center"
         android:fontFamily="@font/sfbold"
         android:textSize="40sp"
-        android:rotationY="-5"
+        android:rotation="-4"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="99dp"
         android:layout_marginStart="10dp"
-        android:textColor="#118AEA"/>
+        android:textColor="#3f9dff"/>
 
     
     <ImageView
