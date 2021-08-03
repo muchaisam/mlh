@@ -14,13 +14,13 @@
     <string name="noti">Notification</string>
     <string name="ac">Account details</string>
     <string name="arrow">arrow</string>
-    <string name="send">Send</string>
+    <string name="send">Transfer</string>
     <string name="tp">Topup</string>
     <string name="rc">Request</string>
     <string name="mpesa_payment">Payment</string>
     <string name="phone">Your Phone Number</string>
     <string name="amount">Enter Amount</string>
-    <string name="mobilen">Enter Your Mobile Number</string>
+    <string name="mobilen">Enter Your Mobile Number to get started</string>
     <string name="digits">0712345678</string>
     <string name="next">next</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -29,5 +29,16 @@
     <string name="k">Ksh ..</string>
     <string name="pd">per day</string>
     <string name="raa">REQUEST $ ANYWHERE ANYTIME</string>
-    <string name="tc">Trending Categories</string>
+    <string name="tc">Latest Transactions</string>
+    <string name="nos">X_X_X_X_X_X</string>
+    <string name="data">Kindly enter the following details to continue </string>
+    <string name="name">Name</string>
+    <string name="ds">Dwight Schrute</string>
+    <string name="mn">Mobile Number</string>
+    <string name="mail">Email</string>
+    <string name="dse">dwightschrute@gmail.com</string>
+    <string name="cry">Create your account or log back in</string>
+    <string name="weltext">We meet again!</string>
+    <string name="logi"> Log in </string>
+    <string name="reg">SignUp</string>
 </resources>
