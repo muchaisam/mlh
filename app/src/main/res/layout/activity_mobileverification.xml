@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MobileVerification">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Otp Verification"
+            android:textColor="#3f9dff"
+            android:fontFamily="@font/sfmedium"
+            android:layout_marginTop="65dp"
+            android:textSize="23sp"
+            android:layout_marginStart="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="48dp"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:inputType="phone"
+                android:id="@+id/editTextCode"
+                android:layout_marginRight="34dp"
+                android:layout_marginEnd="34dp"
+                android:textColor="#3f9dff"
+                android:hint="@string/nos"
+                android:fontFamily="@font/sfmedium"
+                android:layout_marginTop="48dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginStart="34dp" />
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#9f9e9e"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="44dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="44dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:background="@color/purple_700"
+        android:textSize="13sp"
+        android:id="@+id/tv_otpcode"
+        android:gravity="center_horizontal"
+        android:paddingTop="15.5dp"
+        android:paddingBottom="15.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="27dp"
+        android:textAllCaps="true"
+        android:elevation="1dp" />
+
+
+
+
+</RelativeLayout>
