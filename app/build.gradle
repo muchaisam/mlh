@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
@@ -23,6 +24,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildTypes.each {
+
+        // CONSUMER_KEY & CONSUMER_SECRET Build Variables are referenced from gradle.properties file
+        it.buildConfigField 'String', 'CONSUMER_KEY', DARAJA_CONSUMER_KEY
+        it.buildConfigField 'String', 'CONSUMER_SECRET', DARAJA_CONSUMER_SECRET
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -43,4 +52,27 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.1'
     implementation 'androidx.browser:browser:1.3.0'
 
+    //okthpp3
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.7'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //timb
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    //alert
+    implementation 'cn.pedant.sweetalert:library:1.3'
+
+
+}
+repositories {
+    mavenCentral()
 }
