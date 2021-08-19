@@ -35,7 +35,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
+                android:textSize="25sp"
                 android:inputType="phone"
                 android:id="@+id/editTextCode"
                 android:layout_marginRight="34dp"
