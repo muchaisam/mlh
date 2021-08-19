@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.TransactionsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/transaa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="My Balance : "
+                    android:textColor="#3f9dff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Ksh 1000"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp" />
+
+            <LinearLayout
+                android:id="@+id/container_choose_service"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="RtlSymmetry">
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/image_1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:padding="12dp"
+                        android:src="@drawable/send"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image_1"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sfheavy"
+                        android:text="Send"
+                        android:textAlignment="center"
+                        android:textSize="11sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/image_2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:padding="12dp"
+                        android:src="@drawable/send"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image_2"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sfheavy"
+                        android:text="Request"
+                        android:textAlignment="center"
+                        android:textSize="11sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/image_3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:padding="12dp"
+                        android:src="@drawable/send"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image_3"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sfheavy"
+                        android:text="Request"
+                        android:textAlignment="center"
+                        android:textSize="11sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/image_4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:padding="12dp"
+                        android:src="@drawable/send"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image_4"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sfheavy"
+                        android:text="Top up"
+                        android:textAlignment="center"
+                        android:textSize="11sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/recents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/transaa"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_half_rounded2"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:id="@+id/text_active_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="Recent Transactions"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/text_active_order"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="(5)"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_item_rounded"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Transaction History"
+                    android:textAllCaps="false"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/transactions"
+            android:layout_below="@+id/recents"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/netf"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="Amount : "
+                    android:textColor="#3f9dff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Ksh 1500"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zoom"
+            android:layout_below="@+id/transactions"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/zoom"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="Amount : "
+                    android:textColor="#3f9dff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Ksh 1500"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hbo"
+            android:layout_below="@+id/zoom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/hbo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="Amount : "
+                    android:textColor="#3f9dff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Ksh 1500"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/spotify"
+            android:layout_below="@+id/hbo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/spotify"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="Amount : "
+                    android:textColor="#3f9dff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Ksh 1500"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/amazon"
+            android:layout_below="@+id/spotify"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/amazon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:fontFamily="@font/sfbold"
+                    android:text="Amount : "
+                    android:textColor="#3f9dff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:text="Ksh 1500"
+                    android:textColor="#3f9dff"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav" />
+</RelativeLayout>
