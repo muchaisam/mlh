@@ -1,7 +1,7 @@
 package com.example.mlh;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,12 +10,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import com.example.mlh.screens.AccountFragment;
-import com.example.mlh.screens.HomeFragment;
-import com.example.mlh.screens.PaymentFragment;
-import com.example.mlh.screens.TransactionsFragment;
+import com.example.mlh.screens.AccountActivity;
+import com.example.mlh.screens.PaymentActivity;
+import com.example.mlh.screens.TransactionsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Calendar;
@@ -36,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
         //initializing shared prefs
         sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
@@ -48,56 +47,48 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
         if(timeOfDay >= 0 && timeOfDay < 12){
-            greetings.setText("Good Morning " + username);
+            greetings.setText("Good Morning, " + username);
         }else if(timeOfDay >= 12 && timeOfDay < 16){
-            greetings.setText("Good Afternoon " + username);
+            greetings.setText("Good Afternoon, " + username);
         }else if(timeOfDay >= 16 && timeOfDay < 24){
-            greetings.setText("Good Evening " + username);
+            greetings.setText("Good Evening, " + username);
         }
 
-        initViews();
-        loadFragment(new HomeFragment());
+        //initialize and assigning the variable
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        //set home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        //listeners
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        return true;
+                    case R.id.payment:
+                        Toast.makeText(MainActivity.this, "Payment", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent (getApplicationContext(), PaymentActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.accountt:
+                        Toast.makeText(MainActivity.this, "Account", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent (getApplicationContext(), AccountActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.transactions:
+                        Toast.makeText(MainActivity.this, "Transactions", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent (getApplicationContext(), TransactionsActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return true;
+            }
+        });
     }
 
-    private void initViews() {
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(this);
-    }
 
-    private boolean loadFragment(Fragment fragment) {
-        //switching fragment
-        if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
-
-
-
-    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        Fragment fragment = null;
-
-        switch (item.getItemId()) {
-            case R.id.homef:
-                fragment = new HomeFragment();
-                break;
-            case R.id.payment_pg:
-                fragment = new PaymentFragment();
-                break;
-            case R.id.account_pg:
-                fragment = new AccountFragment();
-                break;
-            case R.id.transactions:
-                fragment = new TransactionsFragment();
-                break;
-        }
-        return loadFragment(fragment);
+        return false;
     }
 }
