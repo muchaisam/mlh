@@ -2,7 +2,7 @@
 
 An customizable android application that can be used as a UI-Kit for a payment application. 
 
-It is based on M-PESA [https://g.co/kgs/wCj1hv](https://g.co/kgs/wCj1hv) which a mode of mobile money transfer. 
+It is based on [M-PESA](https://g.co/kgs/wCj1hv) which a mode of mobile money transfer. 
 
 This app would allow people top-up their phones from wherever they are.
 
