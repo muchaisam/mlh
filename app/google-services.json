@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "967728510894",
+    "firebase_url": "https://mlhapplication-default-rtdb.firebaseio.com",
     "project_id": "mlhapplication",
     "storage_bucket": "mlhapplication.appspot.com"
   },
@@ -14,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "967728510894-f0dv61trq756749n4i1qtt5hqen5n51i.apps.googleusercontent.com",
+          "client_id": "967728510894-958mpuemlrkju1cuk654degcl2c0jp12.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.mlh",
-            "certificate_hash": "c2d16b0d1e7987b28cacd42e1874df4d90a07eb8"
+            "certificate_hash": "1333ab5d5a059c3bb7e788f14d177eaa308d2e31"
           }
         },
         {
