@@ -25,6 +25,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes.each {
 
         // CONSUMER_KEY & CONSUMER_SECRET Build Variables are referenced from gradle.properties file
