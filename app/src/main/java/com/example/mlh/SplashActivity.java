@@ -10,7 +10,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         setContentView(R.layout.activity_splash);
         new android.os.Handler().postDelayed(new Runnable() {
             @Override
