@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private TextView greetings;
+    TextView transfer, request;
+    ImageView userinfo;
     //Constant keys for shared preferences
     public final String SHARED_PREFS = "shared_prefs";
 
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //getting data and storing it
         username = sharedPreferences.getString(USER_NAME, null);
 
+        //on click listeners
+        transfer = (TextView)findViewById(R.id.transfer);
+        request = (TextView)findViewById(R.id.request);
+        userinfo = (ImageView)findViewById(R.id.userinfo);
 
         greetings =(TextView)findViewById(R.id.greetings);
         Calendar c = Calendar.getInstance();
