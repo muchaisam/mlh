@@ -12,7 +12,7 @@ This app would allow people top-up their phones from wherever they are.
 - UX enhancement with user greetings
 
 #### Features being worked on
-- Notifications
+- Notifications ( Halfway There)
 - Reminders
 
 ### Getting Started
