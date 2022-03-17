@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         username = sharedPreferences.getString(USER_NAME, null);
 
         //on click listeners
-        transfer = (TextView)findViewById(R.id.transfer);
-        request = (TextView)findViewById(R.id.request);
-        userinfo = (ImageView)findViewById(R.id.userinfo);
+        transfer = findViewById(R.id.transfer);
+        request = findViewById(R.id.request);
+        userinfo = findViewById(R.id.userinfo);
 
-        greetings =(TextView)findViewById(R.id.greetings);
+        greetings =findViewById(R.id.greetings);
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
@@ -62,34 +62,31 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
 
         //initialize and assigning the variable
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         //set home selected
         bottomNavigationView.setSelectedItemId(R.id.home);
         //listeners
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        return true;
-                    case R.id.payment:
-                        Toast.makeText(MainActivity.this, "Payment", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent (getApplicationContext(), PaymentActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.accountt:
-                        Toast.makeText(MainActivity.this, "Account", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent (getApplicationContext(), AccountActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.transactions:
-                        Toast.makeText(MainActivity.this, "Transactions", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent (getApplicationContext(), TransactionsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return true;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    return true;
+                case R.id.payment:
+                    Toast.makeText(MainActivity.this, "Payment", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent (getApplicationContext(), PaymentActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.accountt:
+                    Toast.makeText(MainActivity.this, "Account", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent (getApplicationContext(), AccountActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.transactions:
+                    Toast.makeText(MainActivity.this, "Transactions", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent (getApplicationContext(), TransactionsActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
             }
+            return true;
         });
     }
 
