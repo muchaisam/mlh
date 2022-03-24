@@ -68,6 +68,9 @@ dependencies {
     //alert
     implementation 'cn.pedant.sweetalert:library:1.3'
 
+    //flutterwave
+    implementation 'com.github.flutterwave.rave-android:rave_android:2.1.38'
+
 
 }
 repositories {
