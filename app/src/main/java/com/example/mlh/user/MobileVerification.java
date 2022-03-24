@@ -1,9 +1,8 @@
-package com.example.mlh;
+package com.example.mlh.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
+import com.example.mlh.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -68,18 +64,15 @@ public class MobileVerification extends AppCompatActivity {
         sendVerificationCode(mobile);
 
         tv_otpcode = findViewById(R.id.tv_otpcode);
-        tv_otpcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String code = editTextCode.getText().toString().trim();
-                if (code.isEmpty() || code.length() < 6) {
-                    editTextCode.setError("Kindly repeat the verification code");
-                    editTextCode.requestFocus();
-                    return;
-                }
-
-                verifyVerificationCode(code);
+        tv_otpcode.setOnClickListener(v -> {
+            String code = editTextCode.getText().toString().trim();
+            if (code.isEmpty() || code.length() < 6) {
+                editTextCode.setError("Kindly repeat the verification code");
+                editTextCode.requestFocus();
+                return;
             }
+
+            verifyVerificationCode(code);
         });
     }
 
@@ -127,33 +120,30 @@ public class MobileVerification extends AppCompatActivity {
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential){
 
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(MobileVerification.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                .addOnCompleteListener(MobileVerification.this, task -> {
 
-                        if (task.isSuccessful()) {
-                            //switch to profile activity
-                            Intent intent = new Intent(MobileVerification.this, ProfileActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                        }else {
+                    if (task.isSuccessful()) {
+                        //switch to profile activity
+                        Intent intent = new Intent(MobileVerification.this, ProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }else {
 
-                            String message = "Sorry about that, Pobody's nerfect ...";
+                        String message = "Sorry about that, Pobody's nerfect ...";
 
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException){
-                                message = "Sorry, the code you input has expired, kindly try again";
-                            }
-                            Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
-                            snackbar.setAction("Dismiss", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                }
-                            });
-                            snackbar.show();
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException){
+                            message = "Sorry, the code you input has expired, kindly try again";
                         }
+                        Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
+                        snackbar.setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
 
+                            }
+                        });
+                        snackbar.show();
                     }
+
                 });
 
     }

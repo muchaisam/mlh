@@ -1,20 +1,16 @@
-package com.example.mlh;
+package com.example.mlh.user;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.mlh.MainActivity;
+import com.example.mlh.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import static android.content.ContentValues.TAG;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -51,21 +47,18 @@ public class RegisterActivity extends AppCompatActivity {
         mobiledigit = findViewById(R.id.mobiledigit);
 
         next = findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                String mobile = mobiledigit.getText().toString().trim();
+        next.setOnClickListener(v -> {
+            String mobile = mobiledigit.getText().toString().trim();
 
-                if (mobile.isEmpty() || mobile.length() <10){
-                    mobiledigit.setError("Kindly enter your mobile number");
-                    mobiledigit.requestFocus();
-                    return;
-                }
-
-                Intent intent = new Intent(RegisterActivity.this, MobileVerification.class);
-                intent.putExtra("mobile", mobile);
-                startActivity(intent);
+            if (mobile.isEmpty() || mobile.length() <10){
+                mobiledigit.setError("Kindly enter your mobile number");
+                mobiledigit.requestFocus();
+                return;
             }
+
+            Intent intent = new Intent(RegisterActivity.this, MobileVerification.class);
+            intent.putExtra("mobile", mobile);
+            startActivity(intent);
         });
 
 

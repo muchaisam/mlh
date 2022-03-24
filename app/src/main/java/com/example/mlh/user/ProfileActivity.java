@@ -1,4 +1,4 @@
-package com.example.mlh;
+package com.example.mlh.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mlh.MainActivity;
+import com.example.mlh.R;
 import com.example.mlh.model.AppUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -51,6 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
         tv_updateuserdetail = findViewById(R.id.tv_updateuserdetail);
 
         //getting data stored in shared prefs
+
         sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         //passing username
         username = sharedPreferences.getString(USER_NAME, null);
