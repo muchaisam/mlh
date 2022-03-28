@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mlh.screens.AccountActivity;
 import com.example.mlh.screens.PaymentActivity;
-import com.example.mlh.screens.TransactionsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Calendar;
@@ -26,12 +25,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     ImageView userinfo;
     //Constant keys for shared preferences
     public final String SHARED_PREFS = "shared_prefs";
-
-    //storing phone
-    public final String USER_NAME = "user_name";
+    public final String LAST_NAME = "last_name";
 
     SharedPreferences sharedPreferences;
-    String username;
+    String lastname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,25 +37,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
         //initializing shared prefs
+        //initializing shared prefs
         sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         //getting data and storing it
-        username = sharedPreferences.getString(USER_NAME, null);
+        lastname = sharedPreferences.getString(LAST_NAME, null);
 
         //on click listeners
         transfer = findViewById(R.id.transfer);
         request = findViewById(R.id.request);
-        userinfo = findViewById(R.id.userinfo);
 
         greetings =findViewById(R.id.greetings);
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
         if(timeOfDay >= 0 && timeOfDay < 12){
-            greetings.setText("Good Morning, " + username);
+            greetings.setText("Good Morning, " + lastname);
         }else if(timeOfDay >= 12 && timeOfDay < 16){
-            greetings.setText("Good Afternoon, " + username);
+            greetings.setText("Good Afternoon, " + lastname);
         }else if(timeOfDay >= 16 && timeOfDay < 24){
-            greetings.setText("Good Evening, " + username);
+            greetings.setText("Good Evening, " + lastname);
         }
 
         //initialize and assigning the variable
@@ -78,11 +75,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 case R.id.accountt:
                     Toast.makeText(MainActivity.this, "Account", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent (getApplicationContext(), AccountActivity.class));
-                    overridePendingTransition(0,0);
-                    return true;
-                case R.id.transactions:
-                    Toast.makeText(MainActivity.this, "Transactions", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent (getApplicationContext(), TransactionsActivity.class));
                     overridePendingTransition(0,0);
                     return true;
             }
