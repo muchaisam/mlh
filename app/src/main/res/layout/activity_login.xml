@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enter your mobile number and passcode to Log In"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/purple_200"
             android:fontFamily="@font/sfbold"
             android:textSize="23sp"
             android:textAlignment="center"
@@ -59,7 +59,7 @@
             android:focusable="true"
             android:fontFamily="@font/sfbold"
             android:layout_alignParentBottom="true"
-            android:background="@color/purple_500"
+            android:background="@color/purple_200"
             android:textColor="@color/white"
             android:layout_centerInParent="true"
             android:layout_marginBottom="100dp"/>
