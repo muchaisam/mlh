@@ -1,86 +1,84 @@
 package com.example.mlh.user;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.mlh.MainActivity;
 import com.example.mlh.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
-import static android.content.ContentValues.TAG;
+
+import dev.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class LoggingActivity extends AppCompatActivity {
 
-    private LinearLayout lay_signout;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
-    private String userID;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+        LinearLayout login , lay_signup;
+        private FirebaseAuth auth;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logging);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_logging);
+            auth = FirebaseAuth.getInstance();
+            overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
 
-        lay_signout = findViewById(R.id.lay_signup);
-//        lay_signout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                signOut();
-//            }
-//        });
-
-        //get firebase auth instance
-        firebaseAuth = FirebaseAuth.getInstance();
-
-
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                }
-
-//                 else {
-//                    Log.d(TAG, "onAuthStateChanged:signed_out");
-//                    Intent intent = new Intent(LoggingActivity.this, RegisterActivity.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    startActivity(intent);
-//                    finish();
-//                }
-                // ...
+            if(auth.getCurrentUser() !=null){
+                startActivity(new Intent(LoggingActivity.this, MainActivity.class));
             }
-        };
-    }
 
-////    private void signOut() {
-//        firebaseAuth.signOut();
-//    }
+            login = (LinearLayout) findViewById(R.id.login);
+            login.setOnClickListener(view -> {
+                startActivity(new Intent(LoggingActivity.this, LoginActivity.class));
+                finish();
+            });
+            lay_signup = (LinearLayout) findViewById(R.id.lay_signup);
+            lay_signup.setOnClickListener(view -> {
+                Intent i = new Intent(LoggingActivity.this, RegisterActivity.class);
+                startActivity(i);
+                finish();
+            });
+
+            if (!isNetworkAvailable()){
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("No Internet")
+                        .setMessage("Please check your internet connection")
+                        .setCancelable(false)
+                        .setPositiveButton("Dismiss", R.drawable.ic_close, (dialogInterface, which) -> dialogInterface.dismiss())
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+                FancyToast.makeText(LoggingActivity.this, "You are not connected to the internet", FancyToast.WARNING, FancyToast.LENGTH_SHORT, false).show();
+            }else if (isNetworkAvailable())
+            {
+                FancyToast.makeText(LoggingActivity.this, "Get Started", FancyToast.SUCCESS, FancyToast.LENGTH_SHORT, false).show();
+            }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
-    }
+        }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
+        public boolean isNetworkAvailable(){
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivityManager != null){
+
+                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+                if (capabilities != null){
+                    if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)){
+                        return true;
+                    }
+                    else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)){
+                        return true;
+                    }
+                    else return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET);
+                }
+            }
+            return false;
         }
     }
-}
