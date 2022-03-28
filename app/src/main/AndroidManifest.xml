@@ -15,21 +15,15 @@
         android:theme="@style/Theme.Mlh"
         tools:replace="android:icon">
         <activity
-            android:name=".screens.UserinfoActivity"
-            android:exported="true" />
-        <activity
-            android:name=".screens.TransactionsActivity"
-            android:exported="true" />
-        <activity
             android:name=".screens.PaymentActivity"
             android:exported="true" />
         <activity
             android:name=".screens.AccountActivity"
             android:exported="true" />
-        <activity android:name=".LoggingActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".MobileVerification" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".user.LoggingActivity" />
+        <activity android:name=".user.MoreInfo" />
+        <activity android:name=".user.MobileVerification" />
+        <activity android:name=".user.RegisterActivity" />
         <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
