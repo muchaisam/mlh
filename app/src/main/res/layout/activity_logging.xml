@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,26 +13,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp">
         <TextView
-            android:textSize="17.3sp"
+            android:textSize="22.3sp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="23.3dp"
             android:text="@string/weltext"
-            android:fontFamily="@font/sfsemibold"
+            android:textColor="?android:textColorPrimary"
+            android:fontFamily="@font/sfregular"
             android:letterSpacing="0.0325"/>
         <TextView
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11.7dp"
             android:text="@string/cry"
+            android:textColor="?android:textColorPrimary"
             android:lineSpacingExtra="3dp"
-            android:fontFamily="@font/sfmedium"
+            android:fontFamily="@font/sfregular"
             android:textAlignment="center"
             android:letterSpacing="0.0425"/>
-        <LinearLayout
+        <RelativeLayout
             android:layout_gravity="center"
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -43,39 +44,42 @@
                 android:orientation="vertical"
                 android:background="@drawable/rectangle_cure_gray"
                 android:layout_width="wrap_content"
+                android:layout_alignParentStart="true"
                 android:id="@+id/login"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textSize="14.7sp"
+                    android:textSize="15.7sp"
                     android:paddingLeft="20dp"
                     android:paddingTop="2.5dp"
                     android:paddingRight="20dp"
                     android:paddingBottom="2.5dp"
+                    android:textColor="?android:textColorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/logi"
-                    android:fontFamily="@font/sfmedium"/>
+                    android:text="Login"
+                    android:fontFamily="@font/sfregular"/>
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
+                android:layout_toEndOf="@id/login"
                 android:id="@+id/lay_signup"
                 android:background="@drawable/rectangle_cure_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp">
+                android:layout_gravity="center">
                 <TextView
-                    android:textSize="14.7sp"
+                    android:textSize="15.7sp"
                     android:paddingLeft="20dp"
                     android:paddingTop="2.5dp"
                     android:paddingRight="20dp"
                     android:paddingBottom="2.5dp"
+                    android:textColor="?android:textColorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/reg"
-                    android:fontFamily="@font/sfmedium"/>
+                    android:text="Signup"
+                    android:fontFamily="@font/sfregular"/>
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>

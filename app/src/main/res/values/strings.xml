@@ -24,7 +24,7 @@
     <string name="mail">Email</string>
     <string name="dse">dwightschrute@gmail.com</string>
     <string name="cry">Create your account or log back in</string>
-    <string name="weltext">We meet again!</string>
+    <string name="weltext">Hello There!</string>
     <string name="logi"> Log in </string>
     <string name="reg">SignUp</string>
 </resources>

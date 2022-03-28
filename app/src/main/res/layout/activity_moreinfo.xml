@@ -31,7 +31,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="23dp"
-                android:layout_marginEnd="23.2dp">
+                android:layout_marginEnd="23.2dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginRight="23.2dp">
 
 
 
@@ -58,13 +60,40 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/user_name"
+                    android:id="@+id/first_name"
                     android:layout_marginBottom="13.5dp"
                     android:background="@android:color/transparent"
                     android:layout_marginTop="7dp"
                     android:fontFamily="@font/sfregular"
                     android:letterSpacing="0.0325"
                     android:hint="@string/ds"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="18.3sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.7dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfmedium"
+                    android:letterSpacing="0.0325"
+                    android:text="Last name"
+                    android:textColor="#3f9dff"
+                    android:textSize="18.7sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/last_name"
+                    android:layout_marginBottom="13.5dp"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/sfregular"
+                    android:letterSpacing="0.0325"
+                    android:hint="Schrute"
+                    android:textColor="?android:textColorPrimary"
                     android:textSize="18.3sp" />
 
                 <View
@@ -91,6 +120,7 @@
                     android:fontFamily="@font/sfregular"
                     android:letterSpacing="0.0325"
                     android:hint="@string/digits"
+                    android:textColor="?android:textColorPrimary"
                     android:background="@android:color/transparent"
                     android:textSize="18.3sp" />
 
@@ -117,6 +147,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/sfregular"
                     android:letterSpacing="0.0325"
+                    android:textColor="?android:textColorPrimary"
                     android:hint="@string/dse"
                     android:textSize="18.3sp" />
 
@@ -125,9 +156,33 @@
                     android:layout_height="0.7dp"/>
 
                 <TextView
-                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.5dp"
+                    android:fontFamily="@font/sfmedium"
+                    android:letterSpacing="0.0325"
+                    android:text="Passcode"
+                    android:textColor="#3f9dff"
+                    android:textSize="18.7sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13.5dp"
+                    android:layout_marginTop="7dp"
+                    android:id="@+id/user_passcode"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/sfregular"
+                    android:letterSpacing="0.0325"
+                    android:textColor="?android:textColorPrimary"
+                    android:hint="******"
+                    android:inputType="textPassword"
+                    android:textSize="18.3sp" />
+
+                <TextView
+                    android:textSize="19sp"
                     android:id="@+id/tv_updateuserdetail"
-                    android:background="@color/blue"
+                    android:background="@color/purple_200"
                     android:textAllCaps="true"
                     android:paddingTop="16.3dp"
                     android:paddingBottom="16.3dp"
@@ -135,8 +190,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="45dp"
                     android:text="@string/next"
+                    android:textColor="?android:textColorPrimary"
                     android:fontFamily="@font/sfmedium"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
 
 
 

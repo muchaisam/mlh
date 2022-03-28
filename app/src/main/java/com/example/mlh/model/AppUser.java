@@ -4,23 +4,42 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class AppUser {
 
-    String username, useremail, usermobilenumber;
+    String firstname, lastname, useremail, usermobilenumber, userpasscode;
 
-
-    public AppUser (String username, String useremail, String usermobilenumber){
-        this.username = username;
+    public AppUser(String firstname, String lastname, String useremail, String usermobilenumber, String userpasscode){
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.useremail = useremail;
         this.usermobilenumber = usermobilenumber;
+        this.userpasscode = userpasscode;
     }
 
-    public String getUsername(){
-        return username;
+    public String getUserpasscode() {
+        return userpasscode;
     }
 
-    public void setUsername(String username){
-        this.username = username;
+    public void setUserpasscode(String userpasscode) {
+        this.userpasscode = userpasscode;
     }
 
+    public String getFirstname(){
+        return firstname;
+    }
+    public void setFirstname(String firstname){
+        this.firstname = firstname;
+    }
+
+    public String getLastname(){
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getUseremail(){
+        return useremail;
+    }
     public void setUseremail(String useremail){
         this.useremail = useremail;
     }
@@ -28,9 +47,9 @@ public class AppUser {
     public String getUsermobilenumber(){
         return usermobilenumber;
     }
-
     public void setUsermobilenumber(String usermobilenumber){
         this.usermobilenumber = usermobilenumber;
     }
-}
 
+
+}

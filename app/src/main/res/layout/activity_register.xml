@@ -21,7 +21,7 @@
             android:layout_marginTop="55dp"
             android:fontFamily="@font/sfbold"
             android:text="@string/mobilen"
-            android:textColor="#3f9dff"
+            android:textColor="?android:textColorPrimary"
             android:textSize="23sp"
             android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
                 android:fontFamily="@font/sfheavy"
                 android:hint="@string/digits"
                 android:inputType="phone"
-                android:textColor="#3f9dff"
+                android:textColor="?android:textColorPrimary"
                 android:textSize="18sp" />
 
             <ImageView

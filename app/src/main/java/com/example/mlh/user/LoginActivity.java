@@ -14,6 +14,7 @@ import com.example.mlh.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -71,13 +72,13 @@ public class LoginActivity extends AppCompatActivity {
                         else{
                             // start main activity
                             finish();
-                            Toast.makeText(LoginActivity.this, "Welcome to Cleansafi. Place your order now.", Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(LoginActivity.this, "Welcome to Cleansafi. Place your order now.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
                     }
                     else {
                         // Failed to log in
-                        Toast.makeText(LoginActivity.this, "Authentication failed.Please Try again",Toast.LENGTH_SHORT).show();
+                        FancyToast.makeText(LoginActivity.this, "Authentication failed.Please Try again",Toast.LENGTH_SHORT).show();
                     }
                 });
     }

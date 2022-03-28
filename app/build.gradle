@@ -71,6 +71,15 @@ dependencies {
     //flutterwave
     implementation 'com.github.flutterwave.rave-android:rave_android:2.1.38'
 
+    // Material Dialog Library
+    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.2.2'
+
+    // Material Design Library
+    implementation 'com.google.android.material:material:1.5.0'
+
+    //fancytoast
+    implementation 'io.github.shashank02051997:FancyToast:2.0.1'
+
 
 }
 repositories {
