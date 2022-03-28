@@ -17,13 +17,6 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/transactions"
-        android:enabled="true"
-        android:icon="@drawable/trans"
-        android:title="Transactions"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/accountt"
         android:enabled="true"
         android:icon="@drawable/ac"
