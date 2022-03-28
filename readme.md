@@ -1,19 +1,47 @@
 ## SecureLine
 
-An customizable android application that can be used as a UI-Kit for a payment application. 
+SecureLine provides a platform where users can set reminders to topup their 
+sim cards occasionally. 
 
-It is based on [M-PESA](https://g.co/kgs/wCj1hv) which a mode of mobile money transfer. 
+### Motivation
 
-This app would allow people top-up their phones from wherever they are.
+This app was developed to help Kenyans living abroad get reminders to top-up their sim cards 
+ocassionally to prevent shutdown from the service providers. 
 
 #### Features
 - Easy Login with Mobile number
 - Sessions 
 - UX enhancement with user greetings
+- Payment integration using Flutterwave
+- Notifications
 
-#### Features being worked on
-- Notifications ( Halfway There)
-- Reminders
+### App Screenshots
+
+#### Splash Screen and User input details screen
+
+<p float="left">
+  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/splash.jpg" width="200" />
+  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/reg.jpg" width="200" /> 
+</p>
+
+#### Homepage and account pages
+<p float="left">
+  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/hm.jpg" width="200" />
+  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/ac.jpg" width="200" /> 
+</p>
+
+#### Payment pages
+<p float="left">
+  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/pay.jpg" width="200" />
+  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/fw.jpg" width="200" /> 
+</p>
+
+
+#### Tech Framework 
+
+- Java
+- XML
+- FlutterWave API
 
 ### Getting Started
 - Download the apk on the releases page and use:
@@ -23,3 +51,8 @@ This app would allow people top-up their phones from wherever they are.
   -- If you're in KE you could use your phone number to signup. 
   
   -- Enter your details and get started.
+
+
+#### License 
+
+ MIT Sam Muchai ©2022
