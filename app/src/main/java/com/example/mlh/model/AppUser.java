@@ -1,7 +1,6 @@
 package com.example.mlh.model;
 
-import com.google.firebase.database.IgnoreExtraProperties;
-@IgnoreExtraProperties
+
 public class AppUser {
 
     String firstname, lastname, useremail, usermobilenumber, userpasscode;
