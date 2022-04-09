@@ -1,6 +1,5 @@
 package com.example.mlh.model;
 
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
