@@ -12,10 +12,10 @@ ocassionally to prevent shutdown from the service providers.
 - Easy Login with Mobile number
 - Sessions 
 - UX enhancement with user greetings
-- Payment integration using Flutterwave
+- Payment integration using [Flutterwave](https://flutterwave.com/ke/)
 - Notifications
 
-### App Screenshots
+### Some of the application Screenshots
 
 #### Splash Screen and User input details screen
 
