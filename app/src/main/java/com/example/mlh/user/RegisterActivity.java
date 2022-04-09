@@ -36,13 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (auth.getCurrentUser() !=null) {
             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
         }
-//         else {
-//            Log.d(TAG, "onAuthStateChanged:signed_in");
-//            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            startActivity(intent);
-//            finish();
-//        }
+
 
         mobiledigit = findViewById(R.id.mobiledigit);
 
