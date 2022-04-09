@@ -1,6 +1,6 @@
 package com.example.mlh.user;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -17,20 +17,19 @@ import android.widget.Toast;
 import com.example.mlh.MainActivity;
 import com.example.mlh.R;
 import com.example.mlh.model.AppUser;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.util.Objects;
+
 public class MoreInfo extends AppCompatActivity {
 
     private EditText first_name, last_name, user_email, user_passcode;
-    private TextView user_mobile,tv_updateuseremail;
+    private TextView user_mobile;
     ProgressBar progressBar;
     FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authListener;
 
     //shared preferences
     public final String SHARED_PREFS = "shared_prefs";
@@ -41,9 +40,12 @@ public class MoreInfo extends AppCompatActivity {
     public final String USER_PHONE = "user_mobile";
 
     SharedPreferences sharedPreferences;
-    String firstname, lastname, useremail, usermobilenumber, userpasscode;
+    String firstname;
+    String lastname;
+    String useremail;
+    String usermobilenumber;
 
-    private Context context = this;
+    private final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class MoreInfo extends AppCompatActivity {
         user_email = findViewById(R.id.user_email);
         user_passcode = findViewById(R.id.user_passcode);
         progressBar = findViewById(R.id.progressbar);
-        tv_updateuseremail = findViewById(R.id.tv_updateuserdetail);
+        TextView tv_updateuseremail = findViewById(R.id.tv_updateuserdetail);
 
         //storing data in shared prefs
         sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
@@ -91,7 +93,7 @@ public class MoreInfo extends AppCompatActivity {
 
             FirebaseDatabase.getInstance()
                     .getReference("appusers")
-                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                     .setValue(appUser)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()){
@@ -139,13 +141,14 @@ public class MoreInfo extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()){
                         FirebaseUser user = firebaseAuth.getCurrentUser();
+                        assert user != null;
                         user.sendEmailVerification().addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
                                 // Successfully registered user, please verify through user email
                                 FancyToast.makeText(context, "Kindly also check your email for verification.",FancyToast.INFO, FancyToast.LENGTH_SHORT,false).show();
                             }
                             else{
-                                FancyToast.makeText(context, task1.getException().getMessage() ,FancyToast.ERROR, FancyToast.LENGTH_SHORT,false).show();
+                                FancyToast.makeText(context, Objects.requireNonNull(task1.getException()).getMessage() ,FancyToast.ERROR, FancyToast.LENGTH_SHORT,false).show();
                             }
                         });
                         finish();
