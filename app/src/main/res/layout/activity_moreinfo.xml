@@ -30,10 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="23.2dp"
-                android:layout_marginLeft="23dp"
-                android:layout_marginRight="23.2dp">
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp">
 
 
 
@@ -43,7 +41,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/sfsemibold"
                     android:letterSpacing="0.0325"
-                    android:textColor="#3f9dff"
+                    android:textColor="@color/purple_200"
                     android:text="@string/data"
                     android:textSize="20sp" />
 
@@ -53,8 +51,8 @@
                     android:layout_marginTop="35dp"
                     android:fontFamily="@font/sfmedium"
                     android:letterSpacing="0.0325"
-                    android:text="@string/name"
-                    android:textColor="#3f9dff"
+                    android:text="First Name"
+                    android:textColor="@color/purple_200"
                     android:textSize="18.7sp" />
 
                 <EditText
@@ -80,7 +78,7 @@
                     android:fontFamily="@font/sfmedium"
                     android:letterSpacing="0.0325"
                     android:text="Last name"
-                    android:textColor="#3f9dff"
+                    android:textColor="@color/purple_200"
                     android:textSize="18.7sp" />
 
                 <EditText
@@ -107,7 +105,7 @@
                     android:fontFamily="@font/sfmedium"
                     android:letterSpacing="0.0325"
                     android:text="@string/mn"
-                    android:textColor="#3f9dff"
+                    android:textColor="@color/purple_200"
                     android:textSize="18.7sp" />
 
                 <EditText
@@ -135,7 +133,7 @@
                     android:fontFamily="@font/sfmedium"
                     android:letterSpacing="0.0325"
                     android:text="@string/mail"
-                    android:textColor="#3f9dff"
+                    android:textColor="@color/purple_200"
                     android:textSize="18.7sp" />
 
                 <EditText
@@ -162,7 +160,7 @@
                     android:fontFamily="@font/sfmedium"
                     android:letterSpacing="0.0325"
                     android:text="Passcode"
-                    android:textColor="#3f9dff"
+                    android:textColor="@color/purple_200"
                     android:textSize="18.7sp" />
 
                 <EditText
@@ -180,14 +178,14 @@
                     android:textSize="18.3sp" />
 
                 <TextView
-                    android:textSize="19sp"
+                    android:textSize="18sp"
                     android:id="@+id/tv_updateuserdetail"
                     android:background="@color/purple_200"
-                    android:textAllCaps="true"
+                    android:textAllCaps="false"
                     android:paddingTop="16.3dp"
                     android:paddingBottom="16.3dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginTop="45dp"
                     android:text="@string/next"
                     android:textColor="?android:textColorPrimary"
