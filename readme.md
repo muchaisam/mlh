@@ -6,42 +6,41 @@ sim cards occasionally.
 ### Motivation
 
 This app was developed to help Kenyans living abroad get reminders to top-up their sim cards 
-ocassionally to prevent shutdown from the service providers. 
+occasionally to prevent shutdown from service providers. 
 
 #### Features
-- Easy Login with Mobile number
+- Easy Login & signup with Mobile number and email. 
 - Sessions 
 - UX enhancement with user greetings
 - Payment integration using [Flutterwave](https://flutterwave.com/ke/)
 - Notifications
 
-### Some of the application Screenshots
 
-#### Splash Screen and User input details screen
+#### Screenshots
+<img src="images/image1.png" width="200"><img src="images/image2.png" width="200"><img src="images/image3.png" width="200"><img src="images/image4.png" width="200"><img src="images/image5.png" width="200">
 
-<p float="left">
-  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/splash.jpg" width="200" />
-  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/reg.jpg" width="200" /> 
-</p>
+*Preview mockups were created using 'Previewed' at https://previewed.app*
 
-#### Homepage and account pages
-<p float="left">
-  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/hm.jpg" width="200" />
-  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/ac.jpg" width="200" /> 
-</p>
-
-#### Payment pages
-<p float="left">
-  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/pay.jpg" width="200" />
-  <img src="https://github.com/muchaisam/mlh/blob/main/app/images/fw.jpg" width="200" /> 
-</p>
+#### Clean Architecture
+![Clean Architecture](https://github.com/muchaisam/mlh/blob/main/app/images/clean_architecture.png")
 
 
-#### Tech Framework 
+#### Built With
 
 - Java
+- Kotlin
 - XML
-- FlutterWave API
+
+#### Libraries Used
+- CalendarView
+- CircleImageView
+- Fancy Toast
+- ButterKnife
+- MaterialDialog
+- Flutterwave
+
+#### Other Materials Used
+- Icons8.com
 
 ### Getting Started
 - Download the apk on the releases page and use:
