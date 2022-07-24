@@ -39,7 +39,7 @@
                 <TextView
                     android:padding="16dp"
                     android:layout_marginTop="29dp"
-                    android:textColor="#3f9dff"
+                    android:textColor="?android:textColorPrimary"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
