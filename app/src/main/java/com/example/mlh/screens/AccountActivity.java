@@ -1,24 +1,34 @@
 package com.example.mlh.screens;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.mlh.MainActivity;
 import com.example.mlh.R;
 import com.example.mlh.databinding.ActivityAccountBinding;
+import com.example.mlh.fragment.DatePickerFrag;
+import com.example.mlh.fragment.TimePickerFrag;
 import com.example.mlh.model.AlarmReceiver;
+import com.example.mlh.model.NotificationHelper;
 import com.example.mlh.user.LoggingActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.timepicker.MaterialTimePicker;
@@ -27,9 +37,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class AccountActivity extends AppCompatActivity {
+public class AccountActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private ActivityAccountBinding binding;
     private MaterialTimePicker picker;
@@ -46,6 +57,14 @@ public class AccountActivity extends AppCompatActivity {
     public final String USER_PHONE = "user_mobile";
     Button logout;
     FirebaseDatabase firebaseDatabase;
+
+    Button DatePick, TimePick, SetAlarm;
+    TextView showT, showD;
+    Calendar set = Calendar.getInstance();
+    StringBuilder sb = new StringBuilder();
+    private NotificationHelper mNotificationHelper;
+    SimpleDateFormat dateFormat, timeFormat;
+    String time, calendarDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,19 +96,6 @@ public class AccountActivity extends AppCompatActivity {
             logout();
         });
 
-        //channel
-        createNotificationChannel();
-
-        binding = ActivityAccountBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        //onclick listeners for the three buttons
-        binding.timevieew.setOnClickListener (v -> showTimePicker());
-
-        binding.setreminder.setOnClickListener(v -> setAlarm());
-
-        binding.cancelreminder.setOnClickListener(v -> cancelAlarm());
-
-
         //initialize and assigning the variable
         BottomNavigationView bottomNavigationView =  findViewById(R.id.bottom_navigation);
         //set home selected
@@ -112,80 +118,82 @@ public class AccountActivity extends AppCompatActivity {
             }
             return false;
         });
-
-    }
-
-    private void cancelAlarm() {
-
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-
-        if (alarmManager == null){
-            alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        }
-
-        alarmManager.cancel(pendingIntent);
-        FancyToast.makeText(this, "Reminder cancelled successfully", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show();
-    }
-
-    private void setAlarm() {
-
-        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, pendingIntent);
-
-        FancyToast.makeText(this, "Reminder set successfully", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show();
-    }
-
-    private void showTimePicker() {
-
-        picker = new MaterialTimePicker.Builder()
-                .setTimeFormat(TimeFormat.CLOCK_12H)
-                .setHour(12)
-                .setMinute(0)
-                .setTitleText("Set Reminder Time")
-                .build();
-
-        picker.show(getSupportFragmentManager(), "SecureLine");
-
-        picker.addOnPositiveButtonClickListener(v -> {
-
-            if (picker.getHour() > 12){
-                binding.timevieew.setText(
-                        String.format("%02d",(picker.getHour()-12))+ ":" +String.format("%02d", picker.getMinute()) + "PM"
-                );
-            }else {
-                binding.timevieew.setText(picker.getHour() + ":" + picker.getMinute() + "AM");
+        InitialzeMethod();
+        DatePick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker = new DatePickerFrag(); //Pop up Date Picker Dialog
+                datePicker.show(getSupportFragmentManager(), "date picker");
             }
-
-            calendar = Calendar.getInstance();
-            calendar.set(Calendar.HOUR_OF_DAY, picker.getHour());
-            calendar.set(Calendar.MINUTE, picker.getMinute());
-            calendar.set(Calendar.SECOND, 0);
-            calendar.set(Calendar.MILLISECOND, 0);
         });
-    }
 
-    private void createNotificationChannel() {
+        TimePick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new TimePickerFrag(); //Pop up Time Picker Dialog
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+        });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            CharSequence name = "SecureLineReminderChannel";
-            String description = "Channel for Alarm Manager";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("SecureLine", name, importance);
-            channel.setDescription(description);
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-
-        }
     }
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(AccountActivity.this, LoggingActivity.class));
+    }
+
+    private void InitialzeMethod() {
+
+        DatePick = findViewById(R.id.DatePick);
+        showD = findViewById(R.id.DateView);
+        TimePick = findViewById(R.id.TimePick);
+        showT = findViewById(R.id.TimeView);
+        SetAlarm = findViewById(R.id.SetAlarm);
+
+//        Intent intent = getIntent();
+//        Bundle extras = getIntent().getExtras();
+//        String GoalName = extras.getString("GoalName");
+////        String GoalName = intent.getExtras().getString("GoalName"); //Fetching Goal Name from Intent
+
+
+//        mNotificationHelper = new NotificationHelper(this, GoalName); //initializing NotificationHelper Class with Parameters
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+        set.set(Calendar.YEAR, i); //Set all data in Global Variable Calendar instance
+        set.set(Calendar.MONTH, i1);
+        set.set(Calendar.DATE, i2);
+        dateFormat = new SimpleDateFormat("dd-MM-yyyy"); //Date Format
+        calendarDate = dateFormat.format(set.getTime());
+        showD.setText(calendarDate); //setting TextView
+    }
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        set.set(Calendar.HOUR_OF_DAY, i); //Set all data in Global Variable Calendar instance
+        set.set(Calendar.MINUTE, i1);
+        timeFormat = new SimpleDateFormat("HH-mm aa"); //Time Format
+        time = timeFormat.format(set.getTime());
+        showT.setText(time); //Setting TextView
+    }
+
+
+    public void SetAlarmMan(View view) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE); //Creating Alarm Manager
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("goal", sb.toString()); //passing Goal name
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0); //pending intent
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, set.getTimeInMillis(), pendingIntent); //wakes device if sleep
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(AccountActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

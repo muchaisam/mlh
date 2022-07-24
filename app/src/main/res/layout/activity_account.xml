@@ -25,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ad"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/sfmedium"
         android:text="Dwight Schrute"
         android:textColor="?android:textColorPrimary"
@@ -65,51 +65,116 @@
         android:textSize="20sp"
         android:layout_marginStart="30dp"/>
 
-
     <TextView
-        android:id="@+id/timevieew"
-        android:layout_width="match_parent"
+        android:id="@+id/sett"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnlog"
-        android:fontFamily="@font/sfbold"
-        android:padding="10dp"
-        android:text=" 8 :45 PM "
-        android:layout_marginTop="60dp"
-        android:textAlignment="center"
+        android:layout_below="@id/btnlog"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sfmedium"
+        android:text="Set your reminder"
         android:textColor="?android:textColorPrimary"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/selectimebtn"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/reminder_content_layout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timevieew"
-        android:layout_marginHorizontal="26dp"
-        android:background="@drawable/button"
-        android:text="Set Reminder Time"
-        android:textSize="20sp" />
+        android:layout_marginStart="30dp"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:layout_below="@id/sett">
 
-    <Button
-        android:id="@+id/setreminder"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/selectimebtn"
-        android:layout_marginHorizontal="26dp"
-        android:background="@drawable/button"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/DateView"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/sfregular"
+                android:gravity="center"
+                android:text="Pick a Date"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="17sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/DatePick"
+                android:layout_toEndOf="@id/DateView"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingBottom="5dp"
+                android:text="Select Date"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sfmedium"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/TimeView"
+                android:layout_below="@id/DateView"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="Pick a Time"
+                android:fontFamily="@font/sfmedium"
+                android:gravity="center"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="17sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/TimePick"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/DatePick"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@id/TimeView"
+                android:fontFamily="@font/sfmedium"
+                android:paddingHorizontal="10dp"
+                android:paddingBottom="5dp"
+                android:text="Select Time"
+                android:textAllCaps="false"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="17sp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/SetAlarm"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/reminder_content_layout"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_centerInParent="true"
+        android:onClick="SetAlarmMan"
+        android:paddingHorizontal="10dp"
+        android:paddingBottom="5dp"
         android:text="Set Reminder"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/cancelreminder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/setreminder"
-        android:layout_marginHorizontal="26dp"
-        android:background="@drawable/button"
-        android:text="Cancel Reminder"
-        android:textSize="20sp" />
+        android:fontFamily="@font/sfsemibold"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/reminder_content_layout"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/reminder_content_layout"
+        app:layout_constraintTop_toBottomOf="@+id/reminder_content_layout"
+        app:layout_constraintVertical_bias="0.062" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
