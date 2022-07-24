@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,27 +7,37 @@
     android:paddingEnd="10dp"
     tools:context=".user.LoginActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="100dp"
+            android:id="@+id/cirle"
+            android:layout_width="110dp"
+            android:layout_alignParentStart="true"
+            android:layout_height="110dp"
+            android:src="@drawable/key"/>
 
         <TextView
             android:id="@+id/logtxt"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter your mobile number and passcode to Log In"
-            android:textColor="@color/purple_200"
+            android:layout_marginTop="150dp"
+            android:layout_toEndOf="@id/cirle"
+            android:layout_marginStart="10dp"
             android:fontFamily="@font/sfbold"
-            android:textSize="23sp"
+            android:text="Log In"
             android:textAlignment="center"
-            android:layout_marginTop="55dp"/>
+            android:textColor="@color/purple_200"
+            android:textSize="23sp" />
 
         <EditText
             android:id="@+id/emailinput"
             android:layout_below="@id/logtxt"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:layout_height="wrap_content"
             android:hint="dwight@gmail.com"
+            android:drawableStart="@drawable/ic_baseline_mail_24"
             android:fontFamily="@font/sfregular"
             android:textColor="?android:textColorPrimary"
             android:textAlignment="center"
@@ -37,12 +46,15 @@
 
         <EditText
             android:id="@+id/passcodeview"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/emailinput"
             android:layout_centerInParent="true"
             android:textAlignment="center"
             android:layout_marginTop="15dp"
+            android:drawableStart="@drawable/ic_baseline_lock_open_24"
             android:hint="******"
             android:fontFamily="@font/sfregular"
             android:inputType="textPassword"
@@ -51,9 +63,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tomain"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Proceed"
+            android:textAllCaps="false"
             android:textSize="20sp"
             android:clickable="true"
             android:focusable="true"
@@ -64,6 +77,4 @@
             android:layout_centerInParent="true"
             android:layout_marginBottom="100dp"/>
 
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>
