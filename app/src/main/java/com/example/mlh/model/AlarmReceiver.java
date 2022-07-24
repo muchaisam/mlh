@@ -4,7 +4,14 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Vibrator;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -13,22 +20,28 @@ import com.example.mlh.screens.AccountActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
-    public void onReceive(Context context, Intent intent){
+    public void onReceive(Context context, Intent intent) {
+        String GoalName = intent.getExtras().getString("goal"); //Fetching Goal name
 
-        Intent i = new Intent(context, AccountActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0, i,0);
+        NotificationHelper notificationHelper = new NotificationHelper(context, GoalName); //passing Goal Name in Notificatio Helper
+        NotificationCompat.Builder nb = notificationHelper.getChannelNotification(GoalName); //passing Goal Name in Notificatio Helper
+        notificationHelper.getManager().notify(1, nb.build());
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "SecureLine")
-                .setSmallIcon(R.drawable.topup)
-                .setContentTitle("Get back in the app to complete this!")
-                .setAutoCancel(true)
-                .setContentText("Hurry up before it's too late")
-                .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setContentIntent(pendingIntent);
+        // we will use vibrator first
+        Vibrator vibrator = (Vibrator) context.getSystemService(context.VIBRATOR_SERVICE);
+        vibrator.vibrate(5000);
 
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
-        notificationManagerCompat.notify(123, builder.build());
+        Toast.makeText(context, "Top up your sim now.: "+GoalName, Toast.LENGTH_LONG).show();
+
+        //Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        //Uri alarmUri = Uri.parse("android.resource://achivementtrackerbyamit.example.achivetracker"+"/raw/reminder" + R.raw.reminder);
+        // if (alarmUri == null) {
+        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        //  }
+        // setting default ringtone
+        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+        // play ringtone
+        ringtone.play();
     }
+
 }
