@@ -17,12 +17,12 @@ occasionally to prevent shutdown from service providers.
 
 
 #### Screenshots
-<img src="images/image1.png" width="200"><img src="images/image2.png" width="200"><img src="images/image3.png" width="200"><img src="images/image4.png" width="200"><img src="images/image5.png" width="200">
+<img src="https://github.com/muchaisam/mlh/blob/dev/app/images/image1.png" width="200"><img src="https://github.com/muchaisam/mlh/blob/dev/app/images/image2.png" width="200"><img src="https://github.com/muchaisam/mlh/blob/dev/app/images/image3.png" width="200"><img src="https://github.com/muchaisam/mlh/blob/dev/app/images/image4.png" width="200"><img src="https://github.com/muchaisam/mlh/blob/dev/app/images/image5.png" width="200">
 
 *Preview mockups were created using 'Previewed' at https://previewed.app*
 
 #### Clean Architecture
-![Clean Architecture](https://github.com/muchaisam/mlh/blob/main/app/images/clean_architecture.png")
+<img src ="https://github.com/muchaisam/mlh/blob/dev/app/images/clean_architecture.png">
 
 
 #### Built With
