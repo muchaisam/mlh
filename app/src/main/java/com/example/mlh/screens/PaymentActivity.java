@@ -99,8 +99,9 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 .setfName(firstname)
                 .setlName(lastname)
                 .setNarration("Purchase Goods")
-                .setPublicKey("FLWPUBK-fe11250bac0c6e6df802f4e4588544e5-X")
-                .setEncryptionKey("d022521369a9e547d260d951")
+                //Fluuterwave provides  a public and encryption key on "https://dashboard.flutterwave.com"
+                .setPublicKey("FFFFFFFFFFFFFFFFFFFF")
+                .setEncryptionKey("SDFGHJKJHGFDFGHJHGFDFGH")
                 .setTxRef(System.currentTimeMillis() + "Ref")
                 .acceptAccountPayments(true)
                 .acceptCardPayments(true)
